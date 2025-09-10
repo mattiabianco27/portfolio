@@ -1,4 +1,22 @@
-import { MapPin, Calendar, Globe } from 'lucide-react';
+import { MapPin, Calendar, Globe, Variable } from "lucide-react";
+import variables from "../variables.json";
+
+function getMyAge() {
+  const today = new Date();
+  const birthDate = new Date(2002, 8, 27); // Month is 0-indexed, so 8 = September
+  let age = today.getFullYear() - birthDate.getFullYear();
+  const monthDifference = today.getMonth() - birthDate.getMonth();
+
+  // If current month is earlier than birth month or same month but earlier day, subtract a year
+  if (
+    monthDifference < 0 ||
+    (monthDifference === 0 && today.getDate() < birthDate.getDate())
+  ) {
+    age--;
+  }
+
+  return age;
+}
 
 const About = () => {
   return (
@@ -7,43 +25,53 @@ const About = () => {
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center animate-fade-up">
           About Me
         </h2>
-        
+
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
+          <div
+            className="space-y-6 animate-fade-up"
+            style={{ animationDelay: "0.1s" }}
+          >
             <p className="text-muted-foreground leading-relaxed">
-              I'm a passionate Computer Engineering student with a deep interest in 
-              cybersecurity, web development, and emerging technologies. Currently pursuing 
-              my Bachelor's degree at Politecnico di Torino with an exceptional academic record.
-            </p>
-            
-            <p className="text-muted-foreground leading-relaxed">
-              As a Junior Entrepreneur at JEToP, I've gained hands-on experience in 
-              developing real-world solutions for clients, managing projects, and working 
-              with cutting-edge technologies including blockchain and cloud services.
+              {variables.story}
             </p>
           </div>
-          
-          <div className="space-y-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+
+          <div
+            className="space-y-4 animate-fade-up"
+            style={{ animationDelay: "0.2s" }}
+          >
             <div className="flex items-center space-x-3">
               <Calendar className="w-5 h-5 text-muted-foreground" />
-              <span className="text-muted-foreground">Born September 27, 2002 (22 years)</span>
+              <span className="text-muted-foreground">
+                2022 ({getMyAge()} years)
+              </span>
             </div>
-            
+
             <div className="flex items-center space-x-3">
               <MapPin className="w-5 h-5 text-muted-foreground" />
-              <span className="text-muted-foreground">Ciriè (TO), Italy</span>
+              <span className="text-muted-foreground">
+                {variables.actual_position}
+              </span>
             </div>
-            
+
             <div className="flex items-center space-x-3">
               <Globe className="w-5 h-5 text-muted-foreground" />
-              <span className="text-muted-foreground">Italian Nationality</span>
+              <span className="text-muted-foreground">Italian</span>
             </div>
-            
+
             <div className="pt-4">
               <h3 className="font-semibold mb-2">Interests & Hobbies</h3>
               <div className="flex flex-wrap gap-2">
-                {['Volleyball', 'Skiing', 'Swimming', 'Karate', 'Piano', 'Photography', 'Volunteering'].map((hobby) => (
-                  <span 
+                {[
+                  "Volleyball",
+                  "Skiing",
+                  "Swimming",
+                  "Karate",
+                  "Piano",
+                  "Photography",
+                  "Volunteering",
+                ].map((hobby) => (
+                  <span
                     key={hobby}
                     className="px-3 py-1 bg-accent text-accent-foreground rounded-full text-sm"
                   >

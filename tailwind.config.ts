@@ -55,6 +55,13 @@ export default {
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
+				},
+				electric: {
+					DEFAULT: 'hsl(var(--electric-blue))',
+					light: 'hsl(var(--electric-blue-light))',
+					dark: 'hsl(var(--electric-blue-dark))',
+					muted: 'hsl(var(--electric-blue-muted))',
+					subtle: 'hsl(var(--electric-blue-subtle))',
 				}
 			},
 			borderRadius: {

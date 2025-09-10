@@ -36,49 +36,74 @@
 
     --radius: 0.5rem;
 
+    /* Electric Blue Accent Colors */
+    --electric-blue: 200 100% 50%;
+    --electric-blue-light: 200 95% 65%;
+    --electric-blue-dark: 200 100% 35%;
+    --electric-blue-muted: 200 60% 70%;
+    --electric-blue-subtle: 200 40% 85%;
+    --electric-glow: 200 100% 50%;
+
     /* Custom design tokens */
     --gradient-hero: linear-gradient(135deg, hsl(0 0% 0%), hsl(0 0% 20%));
     --gradient-text: linear-gradient(90deg, hsl(0 0% 0%), hsl(0 0% 30%));
+    --gradient-electric: linear-gradient(
+      135deg,
+      hsl(200 100% 50%),
+      hsl(200 100% 35%)
+    );
     --shadow-soft: 0 4px 6px -1px hsl(0 0% 0% / 0.1);
     --shadow-medium: 0 10px 15px -3px hsl(0 0% 0% / 0.1);
     --shadow-large: 0 20px 25px -5px hsl(0 0% 0% / 0.1);
+    --shadow-electric: 0 0 20px hsl(200 100% 50% / 0.3);
     --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* 🌙 Dark theme (automatic from system settings) */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: 0 0% 5%;
-      --foreground: 0 0% 100%;
+  .dark {
+    --background: 0 0% 5%;
+    --foreground: 0 0% 100%;
 
-      --card: 0 0% 8%;
-      --card-foreground: 0 0% 100%;
+    --card: 0 0% 8%;
+    --card-foreground: 0 0% 100%;
 
-      --popover: 0 0% 8%;
-      --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 0 0% 100%;
 
-      --primary: 0 0% 100%;
-      --primary-foreground: 0 0% 0%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
 
-      --secondary: 0 0% 12%;
-      --secondary-foreground: 0 0% 100%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 100%;
 
-      --muted: 0 0% 15%;
-      --muted-foreground: 0 0% 60%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 60%;
 
-      --accent: 0 0% 20%;
-      --accent-foreground: 0 0% 100%;
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 100%;
 
-      --border: 0 0% 20%;
-      --input: 0 0% 20%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
 
-      --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 80%));
-      --gradient-text: linear-gradient(90deg, hsl(0 0% 100%), hsl(0 0% 70%));
-      --shadow-soft: 0 4px 6px -1px hsl(0 0% 100% / 0.05);
-      --shadow-medium: 0 10px 15px -3px hsl(0 0% 100% / 0.05);
-      --shadow-large: 0 20px 25px -5px hsl(0 0% 100% / 0.05);
-    }
+    /* Electric Blue Accent Colors */
+    --electric-blue: 200 100% 60%;
+    --electric-blue-light: 200 100% 75%;
+    --electric-blue-dark: 200 100% 45%;
+    --electric-blue-muted: 200 70% 55%;
+    --electric-blue-subtle: 200 50% 30%;
+    --electric-glow: 200 100% 60%;
+
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%), hsl(0 0% 80%));
+    --gradient-text: linear-gradient(90deg, hsl(0 0% 100%), hsl(0 0% 70%));
+    --gradient-electric: linear-gradient(
+      135deg,
+      hsl(200 100% 60%),
+      hsl(200 100% 45%)
+    );
+    --shadow-soft: 0 4px 6px -1px hsl(0 0% 100% / 0.05);
+    --shadow-medium: 0 10px 15px -3px hsl(0 0% 100% / 0.05);
+    --shadow-large: 0 20px 25px -5px hsl(0 0% 100% / 0.05);
+    --shadow-electric: 0 0 30px hsl(200 100% 60% / 0.4);
   }
 }
 
@@ -124,6 +149,21 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .text-electric-gradient {
+    background: var(--gradient-electric);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-electric-highlight {
+    color: hsl(var(--electric-blue));
+  }
+
+  .glow-electric {
+    box-shadow: var(--shadow-electric);
   }
 
   .animate-text-morph {
@@ -172,6 +212,23 @@
     to {
       opacity: 1;
       transform: scale(1);
+    }
+  }
+
+  .animate-scroll-left {
+    animation: scroll-left 30s linear infinite;
+  }
+
+  .animate-scroll-left-mobile {
+    animation: scroll-left 10s linear infinite;
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
     }
   }
 }

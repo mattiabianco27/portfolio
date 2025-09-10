@@ -1,3 +1,5 @@
+import variables from "../variables.json";
+
 const Footer = () => {
   return (
     <footer className="py-8 px-4 md:px-8 border-t border-border">
@@ -8,10 +10,10 @@ const Footer = () => {
               © {new Date().getFullYear()} Mattia Bianco. All rights reserved.
             </p>
           </div>
-          
+
           <div className="flex items-center space-x-4">
             <a
-              href="https://www.linkedin.com/in/mattiabianco2709/"
+              href={`https://www.linkedin.com/in/${variables.linkedin}/`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
@@ -20,7 +22,7 @@ const Footer = () => {
             </a>
             <span className="text-muted-foreground">•</span>
             <a
-              href="mailto:mattia.bianco@studenti.polito.it"
+              href={`mailto:${variables.email}`}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Email
