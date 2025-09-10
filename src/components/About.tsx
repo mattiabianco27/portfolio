@@ -43,7 +43,7 @@ const About = () => {
             <div className="flex items-center space-x-3">
               <Calendar className="w-5 h-5 text-muted-foreground" />
               <span className="text-muted-foreground">
-                2022 ({getMyAge()} years)
+                2002 ({getMyAge()} years)
               </span>
             </div>
 
